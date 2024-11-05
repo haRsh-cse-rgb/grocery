@@ -78,7 +78,7 @@ const App = () => {
         />
 
         <Route path="/reviews/all" element={<AllReviews />} />
-        <Route path="/about" element={<About />} />
+        
 
         {user && user.role === "Admin" ? (
           <>

@@ -127,7 +127,8 @@ const sendUserPasswordResetEmail = async (req, res) => {
       if (isUserExit) {
         const token = jwt.sign(
           { userId: isUserExit._id },
-          process.env.JWT_RESET_PASSWORD_SECRET_KEY,
+          // process.env.JWT_RESET_PASSWORD_SECRET_KEY,
+          '6376377sbjhxbjsbs3wiuqwus',
           {
             expiresIn: "5m",
           }
@@ -136,15 +137,18 @@ const sendUserPasswordResetEmail = async (req, res) => {
         const transporter = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: process.env.SMPT_MAIL,
-            pass: process.env.SMPT_PASSWORD,
+            // user: process.env.SMPT_MAIL,
+            user:'rockingharsh305@gmail.com',
+            // pass: process.env.SMPT_PASSWORD,
+            pass: 'undertaker001',
           },
         });
         const link = `${req.protocol}://${req.get("host")}/reset-password/${
           isUserExit._id
         }/${token}`;
         await transporter.sendMail({
-          from: process.env.SMPT_MAIL,
+          // from: process.env.SMPT_MAIL,
+          from: 'rockingharsh305@gmail.com',
           to: isUserExit.email,
           subject: "E-SHOP - Password Reset Link",
           html: `<h2>Hello ${isUserExit.firstName}</h2><br>
@@ -172,7 +176,7 @@ const userPasswordReset = async (req, res) => {
   try {
     const { password, confirm_password } = req.body;
     const { id, token } = req.params;
-    await jwt.verify(token, process.env.JWT_RESET_PASSWORD_SECRET_KEY);
+    await jwt.verify(token, 'hdjdnjkn83sjkxnjxk');
     if (password && confirm_password) {
       if (password === confirm_password) {
         if (password.length >= 4) {

@@ -31,13 +31,16 @@ app.use(expressFileUpload());
 
 //Config Cloudniary
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUD_API_SECRET_KEY,
+  // cloud_name: process.env.CLOUD_NAME,
+  // api_key: process.env.CLOUD_API_KEY,
+  // api_secret: process.env.CLOUD_API_SECRET_KEY,
+  cloud_name: 'dqlbyesms',
+  api_key: '932733889689155',
+  api_secret: 'z6cXURO8XrONY9i8bnm_QjxnVXw',
 });
 
-app.listen(process.env.PORT, "localHost", () => {
-  console.log(`Server Running At http://localhost:${process.env.PORT}`);
+app.listen(8000, "localHost", () => {
+  console.log(`Server Running At http://localhost:$ 8000`);
 });
 
 //Load Route

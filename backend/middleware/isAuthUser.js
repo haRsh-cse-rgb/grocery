@@ -9,7 +9,8 @@ const isAuthUser = async (req, res, next) => {
       //Verify Token
       const { userId } = jwt.verify(
         req.cookies.token,
-        process.env.JWT_SECRET_KEY
+        // process.env.JWT_SECRET_KEY
+        'jskjxkjklm827y3y7jndj'
       );
       //Get User From Token
       req.user = await userModel.findById(userId).select("-password");
